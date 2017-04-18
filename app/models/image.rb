@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
-	belongs_to :user
+belongs_to :user
   has_attached_file :image
+  has_many :comments
 
 	# must have image
 	 validates :image, attachment_presence: true

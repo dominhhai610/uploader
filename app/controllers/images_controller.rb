@@ -20,7 +20,8 @@ class ImagesController < ApplicationController
 	end
 
 	def show
-		@images = current_user.images
+		@comments = @image.comments
+		@comment = Comment.new
 	end
 
 	def destroy
@@ -34,10 +35,10 @@ class ImagesController < ApplicationController
 
 	private
 	def image_params
-    params.require(:image).permit(:title, :image, :user_id)
-  end
+	  params.require(:image).permit(:title, :image, :user_id)
+	end
 
-  def set_image
+	def set_image
   	@image = Image.find(params[:id])
   end
 end

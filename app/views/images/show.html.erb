@@ -1,1 +1,18 @@
 <%= image_tag(@image.image.url , :alt => "rss feed", size: "600x600") %>
+<br>
+<table class="table table-striped">
+	<% @comments.each do |cmt| %>
+		<tr><%= cmt.user.email + "said:  " + cmt.content %> </tr><br>
+	<% end %>
+</table>
+
+<%= form_for @comment do |f| %>
+  <div>
+    <%= f.text_area :content %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :image_id, value: @image.id %>
+
+  <%= f.submit "Submit" %>
+<% end %>
