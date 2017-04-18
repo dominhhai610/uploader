@@ -1,0 +1,25 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  # host: localhost"
+  database: "uploader_development"
+  username: "root"
+  password: "123456"
+  redis:
+    # host: <%= ENV["REDIS_URL"] %>
+    options:
+      :namespace: <%= ENV["DATABASE_NAME"] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+

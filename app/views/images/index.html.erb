@@ -1,0 +1,10 @@
+ <ul>
+ <% @images.each do |img|%>
+ 	<li>
+ 	<%= link_to "view image:" + img.title, img.image.url %>
+ 	<%= link_to "delete" , image_path(img), method: :delete, data: { confirm: 'Are you sure?' } %>
+ </li>
+ <% end %>
+</ul>
+
+<%= link_to "<button>New image</button>".html_safe, new_image_path, :id => "button_id", :class => "button_class" %>

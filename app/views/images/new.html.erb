@@ -1,0 +1,14 @@
+<%= form_for @image, html: { multipart: true } do |f| %>
+  <div>
+    <%= f.label "Title"%>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label "Image"%>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.submit "Submit" %>
+<% end %>
