@@ -1,7 +1,7 @@
  <ul>
  <% @images.each do |img|%>
  	<li>
- 	<%= link_to "view image:" + img.title, img.image.url %>
+ 	<%= link_to "view image:" + img.title, image_path(img) %>
  	<%= link_to "delete" , image_path(img), method: :delete, data: { confirm: 'Are you sure?' } %>
  </li>
  <% end %>

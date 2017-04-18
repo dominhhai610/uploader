@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_image, only: [:destroy]
+	before_action :set_image, only: [:destroy, :show]
 	def index
 		@images = current_user.images
 	end
