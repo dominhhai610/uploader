@@ -1,8 +1,9 @@
+<%= render partial: "layouts/header" %>
 <%= image_tag(@image.image.url , :alt => "rss feed", size: "600x600") %>
 <br>
 <table class="table table-striped">
 	<% @comments.each do |cmt| %>
-		<tr><%= cmt.user.email + "said:  " + cmt.content %> </tr><br>
+		<tr><%= cmt.user.email + " said:  " + cmt.content %> </tr><br>
 	<% end %>
 </table>
 
